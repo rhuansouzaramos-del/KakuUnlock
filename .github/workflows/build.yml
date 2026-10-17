@@ -1,5 +1,7 @@
 name: Build KakuUnlock APK
 on: [push, workflow_dispatch]
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,8 +22,19 @@ jobs:
     - name: Build APK
       run: gradle :apk_trigger:assembleDebug
       
-    - name: Upload APK
+    - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
         name: KakuUnlock-APK
         path: apk_trigger/build/outputs/apk/debug/*.apk
+
+    # AQUI ESTÁ A MÁGICA: CRIA O LANÇAMENTO E ANEXA O APK
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      if: github.ref == 'refs/heads/main'
+      with:
+        tag_name: v3.0
+        name: KakuUnlock v3.0 (Elite Build)
+        draft: false
+        prerelease: false
+        files: apk_trigger/build/outputs/apk/debug/*.apk
