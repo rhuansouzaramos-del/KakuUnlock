@@ -14,8 +14,16 @@ jobs:
       uses: android-actions/setup-android@v3
     - name: Accept Android Licenses
       run: echo "y" | sdkmanager --licenses || true
-    - name: Make Gradlew Executable
-      run: chmod +x gradlew || true
+    - name: Create local.properties
+      with:
+        run: echo "sdk.dir= ANDROID_HOME" > local.properties
+    - name: Generate Gradle Wrapper
+      run: gradle wrapper
     - name: Build APK
-      run: gradle :apk_trigger:assembleDebug
-    - name: Upload APK
+      run: ./gradlew :apk_trigger:assembleDebug
+    - name: upload APK
+
+      uses: actions/upload-artifact@v4
+      with:
+        name: KakuUnlock-APK
+        path: apk_trigger/build/outputs/apk/debug/*.apk
