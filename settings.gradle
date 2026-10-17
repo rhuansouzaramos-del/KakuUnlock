@@ -1,0 +1,2 @@
+include ':apk_trigger'
+rootProject.name = "KakuUnlock"
