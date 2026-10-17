@@ -7,34 +7,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
-        
     - name: Setup Gradle 8.2
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: 8.2
-        
     - name: Build APK
       run: gradle :apk_trigger:assembleDebug
-      
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
         name: KakuUnlock-APK
         path: apk_trigger/build/outputs/apk/debug/*.apk
-
-    # AQUI ESTÁ A MÁGICA: CRIA O LANÇAMENTO E ANEXA O APK
     - name: Create Release
       uses: softprops/action-gh-release@v1
       if: github.ref == 'refs/heads/main'
       with:
-        tag_name: v3.0
-        name: KakuUnlock v3.0 (Elite Build)
+        tag_name: v5.0.0
+        name: KakuUnlock v5.0.0 - Checksum & Diagnostico
         draft: false
         prerelease: false
         files: apk_trigger/build/outputs/apk/debug/*.apk
