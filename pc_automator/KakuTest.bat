@@ -6,6 +6,7 @@ echo         KakuUnlock - Teste de Hardware Real
 echo ========================================================
 echo.
 
+echo [*] Lembrete: Instale os drivers da pasta drivers\windows antes de continuar!
 echo [*] Instalando dependencias do Python (pyusb e rich)...
 pip install pyusb rich >nul 2>&1
 
