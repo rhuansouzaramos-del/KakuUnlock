@@ -1,4 +1,4 @@
-# KakuUnlock Suite v4.0
+# KakuUnlock Suite v5.0.0
 
 Ferramenta Open Source para automacao, diagnostico e bypass de FRP em dispositivos MediaTek e Qualcomm.
 
@@ -7,14 +7,14 @@ A Samsung removeu a funcionalidade de desbloqueio de bootloader no firmware One 
 
 ## O que esta incluso?
 - **APK Trigger**: Reinicia o celular direto pro modo BROM via root.
-- **PC Automator (Python)**: Menu interativo (v4.0) com opcoes de Backup Total, EFS/IMEI, Limpeza de FRP e extracao de particoes.
+- **PC Automator (Python) v5.0**: Menu interativo com Backup Total, EFS/IMEI, Checksum SHA256, Diagnostico ADB e extracao de particoes.
 - **Drivers e Payloads**: Todos os drivers USB e o arquivo DA original.
 
 ## Como usar (Windows)
 1. Baixe o zip do projeto (Code > Download ZIP).
 2. Instale os drivers presentes em `drivers/windows`.
 3. Rode o `KakuTest.bat` na pasta `pc_automator`.
-4. Escolha a opcao desejada no menu.
+4. Escolha a opcao desejada no menu. (Os logs serao salvos na pasta `logs` e os backups na pasta `backups`).
 
 ## Como usar (Linux/Termux)
 1. `sudo ./install_rules.sh` (para configurar o USB).
