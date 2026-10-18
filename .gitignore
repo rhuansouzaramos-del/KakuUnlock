@@ -3,3 +3,11 @@ build/
 local.properties
 .idea/
 *.iml
+tools/
+*.zip
+*.jar
+frida-server*
+tools/
+*.zip
+*.jar
+frida-server*

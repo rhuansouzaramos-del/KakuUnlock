@@ -27,8 +27,8 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: github.ref == 'refs/heads/main'
       with:
-        tag_name: v6.0.0
-        name: KakuUnlock v6.0.0 - GUI & Auto-Identify
+        tag_name: v7.0.0
+        name: KakuUnlock v7.0.0 - Ultimate Pentest Arsenal
         draft: false
         prerelease: false
         files: apk_trigger/build/outputs/apk/debug/*.apk
